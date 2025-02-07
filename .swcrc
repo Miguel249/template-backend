@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json.schemastore.org/swcrc",
+    "jsc": {
+        "baseUrl": "./src",
+        "paths": {
+            "@Application/*": [
+                "Context/App/Application/*"
+            ],
+            "@Domain/*": [
+                "Context/App/Domain/*"
+            ],
+            "@Infrastructure/*": [
+                "Context/App/Infrastructure/*"
+            ],
+            "@SharedDomain/*": [
+                "Context/Shared/Domain/*"
+            ],
+            "@SharedInfrastructure/*": [
+                "Context/Shared/Infrastructure/*"
+            ]
+        },
+        "parser": {
+            "syntax": "typescript",
+            "decorators": true,
+            "dynamicImport": true,
+            "tsx": false
+        },
+        "target": "es2021"
+    },
+    "module": {
+        "type": "commonjs"
+    }
+}

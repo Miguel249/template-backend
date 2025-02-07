@@ -1,0 +1,61 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"module": "CommonJS",
+		"moduleResolution": "Node",
+		"resolveJsonModule": true,
+		"typeRoots": [
+			"./node_modules/@types"
+		],
+		"outDir": "./build",
+		"removeComments": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"strictNullChecks": true,
+		"strictBindCallApply": true,
+		"strictFunctionTypes": true,
+		"strictPropertyInitialization": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noEmitOnError": true,
+		"skipLibCheck": true,
+		"baseUrl": "./src",
+		"paths": {
+			"@Config/*": [
+				"config/*"
+			],
+			"@Application/*": [
+				"application/*"
+			],
+			"@Domain/*": [
+				"domain/*"
+			],
+			"@Infrastructure/*": [
+				"infrastructure/*"
+			],
+			"@Shared/*": [
+				"shared/*"
+			],
+			"@Presentation/*": [
+				"presentation/*"
+			]
+		}
+	},
+	"ts-node": {
+		"swc": true
+	},
+	"include": [
+		"./src/**/*"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
