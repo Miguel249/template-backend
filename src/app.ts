@@ -1,12 +1,8 @@
-import express from 'express';
-import { AppEnvs } from '@Shared/infrastructure/environments/system-environments.config';
+import 'dotenv/config';
+import { ServerConfig } from '@Config/server/server.config';
 
 const main = async () => {
-  const app = express();
-  app.get('/work');
-  app.listen(AppEnvs.REST_PORT, () => {
-    console.log(`Listening on port ${AppEnvs.REST_PORT}`);
-  });
+  new ServerConfig().initServer();
 };
 
 main().then();
