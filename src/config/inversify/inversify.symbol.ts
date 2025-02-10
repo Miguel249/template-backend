@@ -1,17 +1,26 @@
 export const USECASES = {
-    // ExampleUseCase: Symbol.for("ExampleUseCase"),
-}
+  // ExampleUseCase: Symbol.for("ExampleUseCase"),
+};
 
 export const CONTROLLERS = {
-    // ExampleController: Symbol.for("ExampleController"),
-}
+  // ExampleController: Symbol.for("ExampleController"),
+};
 
 export const SERVICES = {
-    // ExampleService: Symbol.for("ExampleService"),
-}
+  // ExampleService: Symbol.for("ExampleService"),
+};
 
 export const REPOSITORIES = {
-    // ExampleRepository: Symbol.for("ExampleRepository"),
+  UserRepository: Symbol.for('UserRepository'),
+};
+
+export const FACTORIES = {
+  RepositoryFactory: Symbol.for('RepositoryFactory'),
 }
 
-export const ENVIRONMENTS = {}
+export const CONFIG = {
+  Database: Symbol.for('Database'),
+  Server: Symbol.for('Server'),
+}
+
+export const ENVIRONMENTS = {};

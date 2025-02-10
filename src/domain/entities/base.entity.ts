@@ -4,9 +4,9 @@ export abstract class BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @CreateDateColumn({ type: 'timestamp', default: Date.now() })
+  @CreateDateColumn({ type: 'timestamp' })
   createdAt!: Date;
 
-  @CreateDateColumn({ type: 'timestamp', default: Date.now() })
+  @CreateDateColumn({ type: 'timestamp' })
   updatedAt!: Date;
 }

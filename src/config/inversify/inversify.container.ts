@@ -11,7 +11,7 @@ export class InversifyContainer {
     }
 
     public static getInstance(): Container {
-        if(InversifyContainer._instance){
+        if (!InversifyContainer._instance) {
             InversifyContainer._instance = new InversifyContainer()
         }
         return InversifyContainer._instance._container

@@ -3,7 +3,9 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { SystemEnvs } from '@Shared/infrastructure/environments/system-environments.config';
+import { injectable } from 'inversify';
 
+@injectable()
 export class ServerConfig {
   private readonly app: Application;
 

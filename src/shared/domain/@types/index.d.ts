@@ -1,12 +1,5 @@
 export type {};
 
-interface ImportMeta {
-  readonly systemEnv: SystemEnv;
-  readonly DatabaseEnv: DatabaseEnv;
-  readonly AuthenticationStrategiesEnv: AuthenticationStrategiesEnv;
-  readonly AwsEnv: AwsEnv;
-}
-
 interface SystemEnv {
   NODE_ENV: 'development' | 'production' | 'test';
   REST_PORT: number;
@@ -38,5 +31,5 @@ interface AwsEnv {
 declare global {
   type Nullable<T> = T | null;
 
-  type DbResult<T> = Promise<{ data: Nullable<T>, ok: boolean }>
+  type DbResult<T> = Promise<{ data: Nullable<T>, ok: boolean, error?: unknown; }>;
 }
