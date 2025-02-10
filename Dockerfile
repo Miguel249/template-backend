@@ -1,6 +1,5 @@
 # Etapa 1: Compilar TypeScript
 FROM node:alpine3.20 as ts-compiler
-LABEL com.silverholdings.author="devops@silvercredit.co"
 WORKDIR /TemplateBackend
 COPY package*.json ./
 COPY tsconfig*.json ./
