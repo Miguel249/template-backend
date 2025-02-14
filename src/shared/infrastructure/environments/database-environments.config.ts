@@ -1,13 +1,13 @@
-import { get } from "env-var";
-import { IDatabaseEnv } from "@Shared/domain/models/environments.model";
+import { get } from 'env-var';
+import { IDatabaseEnv } from '@Shared/domain/models/environments.model';
 
 class DatabaseEnvironments extends IDatabaseEnv {
-	DB_DIALECT = get("DB_DIALECT").required().asString();
-	DB_NAME = get("DB_NAME").required().asString();
-	DB_PASS = get("DB_PASS").required().asString();
-	DB_PORT = get("DB_PORT").required().asPortNumber();
-	DB_USER = get("DB_USER").required().asString();
-	DB_HOST = get("DB_HOST").required().asString();
+	DB_DIALECT = get('DB_DIALECT').required().asString();
+	DB_NAME = get('DB_NAME').required().asString();
+	DB_PASS = get('DB_PASS').required().asString();
+	DB_PORT = get('DB_PORT').required().asPortNumber();
+	DB_USER = get('DB_USER').required().asString();
+	DB_HOST = get('DB_HOST').required().asString();
 }
 
 export const DatabaseEnv = new DatabaseEnvironments();

@@ -1,4 +1,4 @@
-import { Container } from "inversify";
+import { Container } from 'inversify';
 
 export class InversifyContainer {
 	private static _instance: InversifyContainer;
@@ -6,7 +6,7 @@ export class InversifyContainer {
 
 	private constructor() {
 		this._container = new Container({
-			defaultScope: "Singleton"
+			defaultScope: 'Singleton'
 		});
 	}
 

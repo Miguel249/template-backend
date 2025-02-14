@@ -1,6 +1,6 @@
-import { DataSource } from "typeorm";
-import { DatabaseEnv } from "@Shared/infrastructure/environments/database-environments.config";
-import { injectable } from "inversify";
+import { DataSource } from 'typeorm';
+import { DatabaseEnv } from '@Shared/infrastructure/environments/database-environments.config';
+import { injectable } from 'inversify';
 
 @injectable()
 export class Database {
@@ -25,9 +25,9 @@ export class Database {
 	public async connect(): Promise<void> {
 		try {
 			await this.dataSource.initialize();
-			console.log("✅ Database connected successfully. 🐐");
+			console.log('✅ Database connected successfully. 🐐');
 		} catch (error) {
-			console.error("❌ Database connection failed: ", error);
+			console.error('❌ Database connection failed: ', error);
 			process.exit(1);
 		}
 	}

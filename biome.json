@@ -7,7 +7,9 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": []
+		"ignore": [
+			"./*.{json, yaml}"
+		]
 	},
 	"formatter": {
 		"enabled": true,
@@ -30,7 +32,8 @@
 				"noInferrableTypes": "off"
 			},
 			"suspicious": {
-				"noExplicitAny": "off"
+				"noExplicitAny": "off",
+				"noExtraNonNullAssertion": "off"
 			}
 		}
 	},

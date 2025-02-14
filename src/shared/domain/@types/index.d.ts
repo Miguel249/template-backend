@@ -1,7 +1,7 @@
 export type {};
 
 interface SystemEnv {
-	NODE_ENV: "development" | "production" | "test";
+	NODE_ENV: 'development' | 'production' | 'test';
 	REST_PORT: number;
 	SECRET_KEY: string;
 	SECRET_KEY_TOKEN: string;

@@ -11,12 +11,12 @@ export const SERVICES = {
 };
 
 export const REPOSITORIES = {
-	UserRepository: Symbol.for("UserRepository")
+	UserRepository: Symbol.for('UserRepository')
 };
 
 export const CONFIG = {
-	Database: Symbol.for("Database"),
-	Server: Symbol.for("Server")
+	Database: Symbol.for('Database'),
+	Server: Symbol.for('Server')
 };
 
 export const ENVIRONMENTS = {};
