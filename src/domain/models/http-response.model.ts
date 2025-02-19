@@ -4,22 +4,27 @@ export interface IHttpResponse<T> {
 	ok: boolean;
 	internalCode: number;
 	prefix: string;
+	message: string;
 	data: Nullable<T>;
 	errors: unknown;
 }
 
 @injectable()
 export class HttpResponse<T> {
-	private internalCode: number;
-	private prefix: string;
-	private data: T;
-	private errors?: unknown;
+	public internalCode: number;
+	public prefix: string;
+	public message: string;
+	public data: Nullable<T>;
+	public errors?: unknown;
 
-	constructor(internalCode: number, prefix: string, data: T, errors?: unknown) {
-		this.internalCode = internalCode;
-		this.prefix = prefix;
-		this.data = data;
-		this.errors = errors;
+	constructor(
+		data: Partial<{ internalCode: number; prefix: string; message: string; data: Nullable<T>; errors?: unknown }>
+	) {
+		this.internalCode = data.internalCode || 0;
+		this.prefix = data.prefix || 'APP';
+		this.message = data.message || '';
+		this.data = data?.data || null;
+		this.errors = data?.errors;
 	}
 
 	public getHttpResponseSuccess(): IHttpResponse<T> {
@@ -27,6 +32,7 @@ export class HttpResponse<T> {
 			ok: true,
 			internalCode: this.internalCode,
 			prefix: this.prefix,
+			message: this.message,
 			data: this.data,
 			errors: null
 		};
@@ -37,6 +43,7 @@ export class HttpResponse<T> {
 			ok: false,
 			internalCode: this.internalCode,
 			prefix: this.prefix,
+			message: this.message,
 			data: null,
 			errors: this.errors
 		};

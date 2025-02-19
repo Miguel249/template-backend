@@ -34,6 +34,9 @@
 			"suspicious": {
 				"noExplicitAny": "off",
 				"noExtraNonNullAssertion": "off"
+			},
+			"complexity": {
+				"noStaticOnlyClass": "off"
 			}
 		}
 	},
@@ -49,7 +52,7 @@
 			"enabled": true,
 			"bracketSpacing": true,
 			"trailingCommas": "none",
-			"indentWidth": 4
+			"indentWidth": 2
 		},
 		"parser": {
 			"unsafeParameterDecoratorsEnabled": true

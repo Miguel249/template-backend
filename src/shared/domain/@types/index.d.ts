@@ -31,5 +31,12 @@ interface AwsEnv {
 declare global {
 	type Nullable<T> = T | null;
 
-	type DbResult<T> = Promise<{ data: Nullable<T>; ok: boolean; error?: unknown }>;
+	export namespace Express {
+		export interface Request {
+			authentication_data: {
+				id: string;
+				ip_connection: string;
+			};
+		}
+	}
 }

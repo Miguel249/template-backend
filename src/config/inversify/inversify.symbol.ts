@@ -1,9 +1,13 @@
 export const USECASES = {
-	// ExampleUseCase: Symbol.for("ExampleUseCase"),
+	CreateUser: Symbol.for('CreateUserUseCase')
 };
 
 export const CONTROLLERS = {
-	// ExampleController: Symbol.for("ExampleController"),
+	CreateUser: Symbol.for('CreateUserController')
+};
+
+export const MIDDLEWARES = {
+	ValidationDto: Symbol.for('ValidationDtoMiddleware')
 };
 
 export const SERVICES = {
@@ -11,12 +15,19 @@ export const SERVICES = {
 };
 
 export const REPOSITORIES = {
-	UserRepository: Symbol.for('UserRepository')
+	UserRepository: Symbol.for('UserRepository'),
+	TransactionalRepository: Symbol.for('TransactionalRepository')
 };
 
 export const CONFIG = {
 	Database: Symbol.for('Database'),
-	Server: Symbol.for('Server')
+	Server: Symbol.for('Server'),
+	HttpResponse: Symbol.for('HttpResponse')
 };
 
 export const ENVIRONMENTS = {};
+
+export const ROUTES = {
+	AppV1: Symbol.for('AppV1Router'),
+	UserV1: Symbol.for('UserV1Router')
+};

@@ -15,7 +15,7 @@ export class Database {
 			password: DatabaseEnv.DB_PASS,
 			database: DatabaseEnv.DB_NAME,
 			synchronize: true, //DO NOT USE IN PRODUCTION
-			logging: true,
+			logging: false,
 			entities: [`${__dirname}/../../infrastructure/entities/*{.ts,.js}`],
 			migrations: [],
 			subscribers: []
