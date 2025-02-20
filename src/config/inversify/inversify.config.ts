@@ -4,6 +4,7 @@ import { InversifyContainer } from '@Config/inversify/inversify.container';
 import { CONFIG, CONTROLLERS, MIDDLEWARES, REPOSITORIES, ROUTES, USECASES } from '@Config/inversify/inversify.symbol';
 import { ServerConfig } from '@Config/server/server.config';
 import { HttpResponse } from '@Domain/models/http-response.model';
+import { ErrorHandler } from '@Infrastructure/handlers/error.handler';
 import { TransactionalRepository } from '@Infrastructure/repositories/transactional.repository.';
 import { UserRepository } from '@Infrastructure/repositories/user.repository';
 import { CreateUserController } from '@Presentation/controllers/user/create-user.controller';
@@ -35,6 +36,7 @@ export class ContainerLoader {
 	private static bindConfig() {
 		ContainerLoader._container.bind<Database>(CONFIG.Database).to(Database);
 		ContainerLoader._container.bind<ServerConfig>(CONFIG.Server).to(ServerConfig);
+		ContainerLoader._container.bind<ErrorHandler>(CONFIG.ErrorHandler).to(ErrorHandler);
 		ContainerLoader._container.bind<HttpResponse<any>>(CONFIG.HttpResponse).to(HttpResponse<any>);
 	}
 

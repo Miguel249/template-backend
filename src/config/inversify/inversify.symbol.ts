@@ -22,7 +22,8 @@ export const REPOSITORIES = {
 export const CONFIG = {
 	Database: Symbol.for('Database'),
 	Server: Symbol.for('Server'),
-	HttpResponse: Symbol.for('HttpResponse')
+	HttpResponse: Symbol.for('HttpResponse'),
+	ErrorHandler: Symbol.for('ErrorHandler')
 };
 
 export const ENVIRONMENTS = {};

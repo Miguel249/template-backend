@@ -20,7 +20,7 @@ export class HttpResponse<T> {
 	constructor(
 		data: Partial<{ internalCode: number; prefix: string; message: string; data: Nullable<T>; errors?: unknown }>
 	) {
-		this.internalCode = data.internalCode || 0;
+		this.internalCode = data.internalCode || 1000;
 		this.prefix = data.prefix || 'APP';
 		this.message = data.message || '';
 		this.data = data?.data || null;
@@ -28,24 +28,22 @@ export class HttpResponse<T> {
 	}
 
 	public getHttpResponseSuccess(): IHttpResponse<T> {
-		return {
+		return Object.assign({
 			ok: true,
 			internalCode: this.internalCode,
 			prefix: this.prefix,
 			message: this.message,
-			data: this.data,
-			errors: null
-		};
+			data: this.data
+		});
 	}
 
 	public getHttpResponseFailed(): IHttpResponse<T> {
-		return {
+		return Object.assign({
 			ok: false,
 			internalCode: this.internalCode,
 			prefix: this.prefix,
 			message: this.message,
-			data: null,
 			errors: this.errors
-		};
+		});
 	}
 }

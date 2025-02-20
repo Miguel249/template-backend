@@ -1,4 +1,5 @@
 import { ROUTES } from '@Config/inversify/inversify.symbol';
+import { ErrorHandler } from '@Infrastructure/handlers/error.handler';
 import type { AppV1Router } from '@Presentation/routers/v1/app-v1.router';
 import { SystemEnvs } from '@Shared/infrastructure/environments/system-environments.config';
 import cors from 'cors';
@@ -13,11 +14,11 @@ export class ServerConfig {
 
 	constructor(@inject(ROUTES.AppV1) private readonly appV1Router: AppV1Router) {
 		this.app = express();
-		this.initMiddelwares();
+		this.initMiddlewares();
 		this.initRoutes();
 	}
 
-	private initMiddelwares = (): void => {
+	private initMiddlewares = (): void => {
 		this.app.use(express.json());
 		this.app.use(express.urlencoded({ extended: true }));
 		this.app.use(cors());
@@ -29,6 +30,7 @@ export class ServerConfig {
 		const mainRouter = Router();
 		mainRouter.use('/api/v1', this.appV1Router.getRouter());
 		this.app.use(mainRouter);
+		this.app.use(ErrorHandler.handle);
 	};
 
 	public initServer = (): void => {
