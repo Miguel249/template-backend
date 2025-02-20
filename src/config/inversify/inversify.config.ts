@@ -1,17 +1,16 @@
-import type { Container } from 'inversify';
 import { CreateUserUseCase } from '@Application/use-cases/user/create-user.usecase';
 import { Database } from '@Config/database/database.config';
 import { InversifyContainer } from '@Config/inversify/inversify.container';
 import { CONFIG, CONTROLLERS, MIDDLEWARES, REPOSITORIES, ROUTES, USECASES } from '@Config/inversify/inversify.symbol';
 import { ServerConfig } from '@Config/server/server.config';
 import { HttpResponse } from '@Domain/models/http-response.model';
+import { TransactionalRepository } from '@Infrastructure/repositories/transactional.repository.';
 import { UserRepository } from '@Infrastructure/repositories/user.repository';
 import { CreateUserController } from '@Presentation/controllers/user/create-user.controller';
+import { ValidationDtoMiddleware } from '@Presentation/middlewares/validationDto.middleware';
 import { AppV1Router } from '@Presentation/routers/v1/app-v1.router';
 import { UserV1Router } from '@Presentation/routers/v1/user-v1.router';
-import { TransactionalRepository } from '@Infrastructure/repositories/transactional.repository.';
-import { ValidationDtoMiddleware } from '@Presentation/middlewares/validationDto.middleware';
-import { ValidationMiddlewareFactory } from '@Presentation/middlewares/validation-middleware.factory';
+import type { Container } from 'inversify';
 
 export class ContainerLoader {
 	private static _container: Container;
@@ -51,9 +50,7 @@ export class ContainerLoader {
 	}
 
 	private static bindMiddleware() {
-		ContainerLoader._container
-			.bind<ValidationMiddlewareFactory>(MIDDLEWARES.ValidationDto)
-			.to(ValidationMiddlewareFactory);
+		ContainerLoader._container.bind<ValidationDtoMiddleware>(MIDDLEWARES.ValidationDto).to(ValidationDtoMiddleware);
 	}
 
 	private static bindControllers() {
