@@ -1,7 +1,7 @@
 import { CreateUserDTO } from '@Application/dtos/user/request/create-user.dto';
 import { CONTROLLERS, MIDDLEWARES } from '@Config/inversify/inversify.symbol';
 import type { CreateUserController } from '@Presentation/controllers/user/create-user.controller';
-import type { ValidationDtoMiddleware } from '@Presentation/middlewares/validationDto.middleware';
+import type { ValidationDtoMiddleware } from '@Presentation/middlewares/validation-dto.middleware';
 import { Router } from 'express';
 import { inject, injectable } from 'inversify';
 

@@ -1,10 +1,10 @@
 import { UserBuilder } from '@Application/dtos/user/builder/user.builder';
 import type { CreateUserDTO } from '@Application/dtos/user/request/create-user.dto';
 import { REPOSITORIES } from '@Config/inversify/inversify.symbol';
-import { ErrorException } from '@Domain/exception/error.exception';
+import { ErrorException } from '@Domain/exceptions/error.exception';
 import { UseCase } from '@Domain/models/usecase.model';
 import type { User } from '@Infrastructure/entities/user';
-import type { TransactionalRepository } from '@Infrastructure/repositories/transactional.repository.';
+import type { TransactionalRepository } from '@Infrastructure/repositories/transactional.repository';
 import type { UserRepository } from '@Infrastructure/repositories/user.repository';
 import { inject, injectable } from 'inversify';
 

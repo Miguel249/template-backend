@@ -1,4 +1,4 @@
-import { ErrorException } from '@Domain/exception/error.exception';
+import { ErrorException } from '@Domain/exceptions/error.exception';
 import { HttpResponse } from '@Domain/models/http-response.model';
 import type { NextFunction, Request, Response } from 'express';
 

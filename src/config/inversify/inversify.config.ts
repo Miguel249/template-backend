@@ -5,10 +5,10 @@ import { CONFIG, CONTROLLERS, MIDDLEWARES, REPOSITORIES, ROUTES, USECASES } from
 import { ServerConfig } from '@Config/server/server.config';
 import { HttpResponse } from '@Domain/models/http-response.model';
 import { ErrorHandler } from '@Infrastructure/handlers/error.handler';
-import { TransactionalRepository } from '@Infrastructure/repositories/transactional.repository.';
+import { TransactionalRepository } from '@Infrastructure/repositories/transactional.repository';
 import { UserRepository } from '@Infrastructure/repositories/user.repository';
 import { CreateUserController } from '@Presentation/controllers/user/create-user.controller';
-import { ValidationDtoMiddleware } from '@Presentation/middlewares/validationDto.middleware';
+import { ValidationDtoMiddleware } from '@Presentation/middlewares/validation-dto.middleware';
 import { AppV1Router } from '@Presentation/routers/v1/app-v1.router';
 import { UserV1Router } from '@Presentation/routers/v1/user-v1.router';
 import type { Container } from 'inversify';
