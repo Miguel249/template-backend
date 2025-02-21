@@ -23,8 +23,8 @@ export class CreateUserUseCase extends UseCase<CreateUserDTO, User> {
 			if (userExist) {
 				throw new ErrorException(1101, 'El usuario ya esta registrado');
 			}
-			const userBuild = new UserBuilder().setName(args.name).setEmail(args.email).setPassword(args.password).build();
-			return await this.userRepo.save(userBuild, transaction);
+			const userBuild = await new UserBuilder().setName(args.name).setEmail(args.email).setPassword(args.password);
+			return await this.userRepo.save(userBuild.build(), transaction);
 		});
 	}
 }

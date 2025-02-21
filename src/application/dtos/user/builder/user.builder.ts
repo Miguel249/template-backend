@@ -1,4 +1,5 @@
 import type { User } from '@Infrastructure/entities/user';
+import { PasswordHasher } from '@Shared/domain/security/password-hasher.security';
 
 export class UserBuilder {
 	private user: Partial<User> = {};
@@ -19,8 +20,8 @@ export class UserBuilder {
 		return this;
 	}
 
-	setPassword(password: string): UserBuilder {
-		this.user.password = password;
+	async setPassword(password: string): Promise<UserBuilder> {
+		this.user.password = await PasswordHasher.hash(password);
 		return this;
 	}
 
