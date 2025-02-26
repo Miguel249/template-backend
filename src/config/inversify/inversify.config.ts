@@ -8,6 +8,7 @@ import { ErrorHandler } from '@Infrastructure/handlers/error.handler';
 import { TransactionalRepository } from '@Infrastructure/repositories/transactional.repository';
 import { UserRepository } from '@Infrastructure/repositories/user.repository';
 import { CreateUserController } from '@Presentation/controllers/user/create-user.controller';
+import { AuthorizationMiddleware } from '@Presentation/middlewares/authentication.middleware';
 import { ValidationDtoMiddleware } from '@Presentation/middlewares/validation-dto.middleware';
 import { AppV1Router } from '@Presentation/routers/v1/app-v1.router';
 import { UserV1Router } from '@Presentation/routers/v1/user-v1.router';
@@ -53,6 +54,7 @@ export class ContainerLoader {
 
 	private static bindMiddleware() {
 		ContainerLoader._container.bind<ValidationDtoMiddleware>(MIDDLEWARES.ValidationDto).to(ValidationDtoMiddleware);
+		ContainerLoader._container.bind<AuthorizationMiddleware>(MIDDLEWARES.Authorization).to(AuthorizationMiddleware);
 	}
 
 	private static bindControllers() {

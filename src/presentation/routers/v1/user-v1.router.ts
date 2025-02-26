@@ -18,7 +18,7 @@ export class UserV1Router {
 	private initUserRoutes(): void {
 		this.userRouter.post(
 			'/create-user',
-			[this.validationDto.run(CreateUserDTO, 'Hubo errores de validación al crear usuario')] as any,
+			[this.validationDto.run(CreateUserDTO, 'Hubo errores de validación al crear usuario')],
 			this.createUserController.run
 		);
 	}

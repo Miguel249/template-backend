@@ -7,7 +7,8 @@ export const CONTROLLERS = {
 };
 
 export const MIDDLEWARES = {
-	ValidationDto: Symbol.for('ValidationDtoMiddleware')
+	ValidationDto: Symbol.for('ValidationDtoMiddleware'),
+	Authorization: Symbol.for('AuthorizationMiddleware')
 };
 
 export const SERVICES = {

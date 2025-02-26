@@ -5,6 +5,7 @@ interface SystemEnv {
 	REST_PORT: number;
 	SECRET_KEY: string;
 	SECRET_KEY_TOKEN: string;
+	ENCRYPTION_SECRET: string;
 }
 
 interface DatabaseEnv {

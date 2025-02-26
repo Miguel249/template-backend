@@ -6,6 +6,7 @@ class SystemEnvironments extends ISystemEnv {
 	REST_PORT = get('REST_PORT').required().asIntPositive();
 	SECRET_KEY = get('SECRET_KEY').required().asString();
 	SECRET_KEY_TOKEN = get('SECRET_KEY_TOKEN').required().asString();
+	ENCRYPTION_SECRET = get('ENCRYPTION_SECRET').required().asString();
 }
 
 export const SystemEnvs = new SystemEnvironments();

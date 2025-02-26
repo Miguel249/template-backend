@@ -19,7 +19,7 @@ export class JwtService {
 		return jwt.sign(payload, JwtService.SECRET_KEY_TOKEN, { expiresIn: expiresIn });
 	}
 
-	static verifyToken<T>(token: string): string | jwt.JwtPayload {
+	static verifyToken<T>(token: string): TokenData<Nullable<JwtPayloadData<T>>> {
 		let isExpired = false;
 		let isNotValid = false;
 		let tokenDecoded: JwtPayloadData<T> | null = null;

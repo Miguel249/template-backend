@@ -3,11 +3,24 @@
 	"jsc": {
 		"baseUrl": "./src",
 		"paths": {
-			"@Application/*": ["Context/App/Application/*"],
-			"@Domain/*": ["Context/App/Domain/*"],
-			"@Infrastructure/*": ["Context/App/Infrastructure/*"],
-			"@SharedDomain/*": ["Context/Shared/Domain/*"],
-			"@SharedInfrastructure/*": ["Context/Shared/Infrastructure/*"]
+			"@Config/*": [
+				"config/*"
+			],
+			"@Application/*": [
+				"application/*"
+			],
+			"@Domain/*": [
+				"domain/*"
+			],
+			"@Infrastructure/*": [
+				"infrastructure/*"
+			],
+			"@Shared/*": [
+				"shared/*"
+			],
+			"@Presentation/*": [
+				"presentation/*"
+			]
 		},
 		"parser": {
 			"syntax": "typescript",
@@ -15,7 +28,7 @@
 			"dynamicImport": true,
 			"tsx": false
 		},
-		"target": "es2021"
+		"target": "es2022"
 	},
 	"module": {
 		"type": "commonjs"

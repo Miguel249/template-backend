@@ -3,6 +3,7 @@ export abstract class ISystemEnv {
 	abstract REST_PORT: number;
 	abstract SECRET_KEY: string;
 	abstract SECRET_KEY_TOKEN: string;
+	abstract ENCRYPTION_SECRET: string;
 }
 
 export abstract class IDatabaseEnv {
