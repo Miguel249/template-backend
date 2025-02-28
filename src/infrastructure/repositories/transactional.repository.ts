@@ -1,11 +1,11 @@
-import type { Database } from '@Config/database/database.config';
+import type { PostgresDatabase } from '@Config/database/postgres-database.config';
 import { CONFIG } from '@Config/inversify/inversify.symbol';
 import { inject, injectable } from 'inversify';
 import type { QueryRunner } from 'typeorm';
 
 @injectable()
 export class TransactionalRepository {
-	constructor(@inject(CONFIG.Database) private dataBase: Database) {}
+	constructor(@inject(CONFIG.Database) private dataBase: PostgresDatabase) {}
 
 	public async execute<T>(operation: (queryRunner: QueryRunner) => Promise<T>): Promise<T> {
 		const queryRunner: QueryRunner = this.dataBase.getDataSource().createQueryRunner();

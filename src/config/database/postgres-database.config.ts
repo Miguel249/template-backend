@@ -3,7 +3,7 @@ import { DatabaseEnv } from '@Shared/infrastructure/environments/database-enviro
 import { injectable } from 'inversify';
 
 @injectable()
-export class Database {
+export class PostgresDatabase {
 	private readonly dataSource: DataSource;
 
 	constructor() {
@@ -25,7 +25,7 @@ export class Database {
 	public async connect(): Promise<void> {
 		try {
 			await this.dataSource.initialize();
-			console.log('✅ Database connected successfully. 🐐');
+			console.log('✅Postgres Database connected successfully. 🐐');
 		} catch (error) {
 			console.error('❌ Database connection failed: ', error);
 			process.exit(1);

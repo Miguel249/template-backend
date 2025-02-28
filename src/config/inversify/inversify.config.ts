@@ -1,5 +1,4 @@
 import { CreateUserUseCase } from '@Application/use-cases/user/create-user.usecase';
-import { Database } from '@Config/database/database.config';
 import { InversifyContainer } from '@Config/inversify/inversify.container';
 import { CONFIG, CONTROLLERS, MIDDLEWARES, REPOSITORIES, ROUTES, USECASES } from '@Config/inversify/inversify.symbol';
 import { ServerConfig } from '@Config/server/server.config';
@@ -13,6 +12,8 @@ import { ValidationDtoMiddleware } from '@Presentation/middlewares/validation-dt
 import { AppV1Router } from '@Presentation/routers/v1/app-v1.router';
 import { UserV1Router } from '@Presentation/routers/v1/user-v1.router';
 import type { Container } from 'inversify';
+import { bindDatabaseModule } from './modules/database.module';
+import { DatabaseEnv } from '@Shared/infrastructure/environments/database-environments.config';
 
 export class ContainerLoader {
 	private static _container: Container;
@@ -26,6 +27,7 @@ export class ContainerLoader {
 	}
 
 	private static bindDependencies() {
+		bindDatabaseModule(ContainerLoader._container, DatabaseEnv.DB_DIALECT);
 		ContainerLoader.bindConfig();
 		ContainerLoader.bindRepositories();
 		ContainerLoader.bindUseCases();
@@ -35,7 +37,6 @@ export class ContainerLoader {
 	}
 
 	private static bindConfig() {
-		ContainerLoader._container.bind<Database>(CONFIG.Database).to(Database);
 		ContainerLoader._container.bind<ServerConfig>(CONFIG.Server).to(ServerConfig);
 		ContainerLoader._container.bind<ErrorHandler>(CONFIG.ErrorHandler).to(ErrorHandler);
 		ContainerLoader._container.bind<HttpResponse<any>>(CONFIG.HttpResponse).to(HttpResponse<any>);
